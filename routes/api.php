@@ -23,4 +23,7 @@ use App\Http\Controllers\OrderController;
 Route::get('product', [ProductApiController::class, 'index']);
 Route::get('product/{id}', [ProductApiController::class, 'getById']);
 
+Route::post('order', [OrderController::class, 'store']);
+Route::get('order/{email}', [OrderController::class, 'getByEmail']);
+
 Route::post('oauth/token', 'Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');

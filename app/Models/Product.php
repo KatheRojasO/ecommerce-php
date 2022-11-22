@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table = 'products';
+    protected $hidden = ['pivot'];
 
     protected $fillable = [
         'category_id',
@@ -30,5 +31,10 @@ class Product extends Model
 
     public function seller() {
         return $this->belongsTo(Seller::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }
